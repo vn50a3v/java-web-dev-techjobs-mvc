@@ -8,9 +8,24 @@
 
 <div class="container body-content">
 
-    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+    <h1 class="text-center" th:text="${#strings.capitalizeWords(title)}"></h1>
+    <div th:fragment="job-listing" class="mt-4">
+        <th:block th:each="item : ${jobs}">
+            <table class="table mx-auto shadow-sm" style="width: 55rem">
+                <tbody>
+                <tr><th class ="text-center" style="width: 35%">ID</th> <td  th:text="${item.id}"></td></tr>
+                <tr><th class ="text-center">Name</th> <td th:text="${item.name}"></td></tr>
+                <tr><th class ="text-center">Employer</th> <td><a th:href="@{/list/jobs(column=Employer,value=${item.employer})}" th:text="${item.employer}"></a></td></tr>
+                <tr><th class ="text-center">Location </th> <td><a th:href="@{/list/jobs(column=Location,value=${item.location})}" th:text="${item.location}"></a></td></tr>
+                <tr><th class ="text-center">Position Type</th> <td th:text="${item.positionType}"></td></tr>
+                <tr><th class ="text-center">Skill</th> <td><a th:href="@{/list/jobs(column=Skill,value=${item.coreCompetency})}" th:text="${item.coreCompetency}"></a></td></tr>
 
-    <!-- TODO #1 - Use a loop to display job results in a table. -->
+                </tbody>
+            </table>
+        </th:block>
+    </div>
+
+
 
 </div>
 
