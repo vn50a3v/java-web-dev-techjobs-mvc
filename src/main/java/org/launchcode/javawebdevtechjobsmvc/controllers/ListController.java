@@ -1,8 +1,10 @@
 package org.launchcode.javawebdevtechjobsmvc.controllers;
 
+import org.launchcode.javawebdevtechjobsmvc.Search;
 import org.launchcode.javawebdevtechjobsmvc.models.Job;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -58,7 +60,22 @@ public class ListController {
             model.addAttribute("title", "Jobs with " + columnChoices.get(column) + ": " + value);
         }
         model.addAttribute("jobs", jobs);
-
         return "list-jobs";
     }
+
+    @PostMapping("jobs")
+    public String listByColumnAndValue(Model model, @RequestParam String searchType, @RequestParam String searchTerm){
+        ArrayList<Job> searchResults = Search.searching(searchTerm, searchType);
+        model.addAttribute("columns", columnChoices);
+        model.addAttribute("jobs", searchResults);
+        return "search";
+    }
+
+
+
+
+
+
+
+
 }
