@@ -14,11 +14,11 @@
             <table class="table mx-auto shadow-sm" style="width: 55rem">
                 <tbody>
                 <tr><th class ="text-center" style="width: 35%">ID</th> <td  th:text="${item.id}"></td></tr>
-                <tr><th class ="text-center">Name</th> <td th:text="${item.name}"></td></tr>
-                <tr><th class ="text-center">Employer</th> <td><a th:href="@{/list/jobs(column=Employer,value=${item.employer})}" th:text="${item.employer}"></a></td></tr>
-                <tr><th class ="text-center">Location </th> <td><a th:href="@{/list/jobs(column=Location,value=${item.location})}" th:text="${item.location}"></a></td></tr>
-                <tr><th class ="text-center">Position Type</th> <td th:text="${item.positionType}"></td></tr>
-                <tr><th class ="text-center">Skill</th> <td><a th:href="@{/list/jobs(column=Skill,value=${item.coreCompetency})}" th:text="${item.coreCompetency}"></a></td></tr>
+                <tr><th class ="text-center">Name</th><td th:text="${item.name}"></td></tr>
+                <tr><th class ="text-center">Employer</th><td><a th:href="@{/list/jobs(column=employer,value=${item.employer})}" th:text="${item.employer}"></a></td></tr>
+                <tr><th class ="text-center">Location </th><td><a th:href="@{/list/jobs(column=location,value=${item.location})}" th:text="${item.location}"></a></td></tr>
+                <tr><th class ="text-center">Position Type</th><td><a th:href="@{/list/jobs(column=positionType,value=${item.positionType})}" th:text="${item.positionType}"></a></td></tr>
+                <tr><th class ="text-center">Skill</th> <td><a th:href="@{/list/jobs(column=coreCompetency,value=${item.coreCompetency})}" th:text="${item.coreCompetency}"></a></td></tr>
 
                 </tbody>
             </table>
