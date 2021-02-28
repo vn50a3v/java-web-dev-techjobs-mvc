@@ -8,11 +8,11 @@ import java.util.ArrayList;
 
 public class Search {
 
-    public static ArrayList<Job> searching (String searchTerm, String searchType){
+    public static ArrayList<Job> searching(String searchTerm, String searchType){
         if(searchTerm.equals("") || searchTerm.equals("all")) {
             return JobData.findAll();
         } else {
-            return JobData.findByColumnAndValue(searchTerm,searchType);
+            return JobData.findByColumnAndValue(searchType, searchTerm);
         }
     }
 }

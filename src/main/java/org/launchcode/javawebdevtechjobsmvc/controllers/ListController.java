@@ -62,14 +62,14 @@ public class ListController {
         model.addAttribute("jobs", jobs);
         return "list-jobs";
     }
-
-    @PostMapping("jobs")
-    public String listByColumnAndValue(Model model, @RequestParam String searchType, @RequestParam String searchTerm){
-        ArrayList<Job> searchResults = Search.searching(searchTerm, searchType);
-        model.addAttribute("columns", columnChoices);
-        model.addAttribute("jobs", searchResults);
-        return "search";
-    }
+//
+//    @PostMapping("jobs")
+//    public String listByColumnAndValue(Model model, @RequestParam String column, @RequestParam String value){
+//        ArrayList<Job> searchResults = Search.searching(column, value);
+//        model.addAttribute("columns", columnChoices);
+//        model.addAttribute("jobs", searchResults);
+//        return "list-jobs";
+//    }
 
 
 
