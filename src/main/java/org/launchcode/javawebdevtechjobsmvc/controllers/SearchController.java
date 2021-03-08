@@ -21,6 +21,7 @@ public class SearchController extends TechJobsController {
     @RequestMapping(value = "")
     public String search(Model model) {
         model.addAttribute("columns", columnChoices);
+        model.addAttribute("x", "all");
         return "search";
     }
 
@@ -28,8 +29,11 @@ public class SearchController extends TechJobsController {
     @PostMapping("results")
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm){
         ArrayList<Job> searchResults = Search.searching(searchTerm, searchType);
+
+        model.addAttribute("x", searchType);
         model.addAttribute("columns", columnChoices);
         model.addAttribute("jobs", searchResults);
+
         return "search";
     }
 }
